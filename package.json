@@ -1,0 +1,16 @@
+{
+  "name": "macacofoca",
+  "version": "1.0.0",
+  "description": "Random photo generator of Monkeys or Seals",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "next": "^13.1.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
