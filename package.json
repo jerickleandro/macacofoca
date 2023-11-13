@@ -4,12 +4,15 @@
   "description": "Random photo generator of Monkeys or Seals",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "dev": "next dev"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.6.1",
     "next": "^13.1.6",
+    "pexels": "^1.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
