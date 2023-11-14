@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 
 export default function Home() {
   const [imageUrl, setImageUrl] = useState(null);
+  const [animal, setAnimal] = useState(null);
 
   useEffect(() => {
     const fetchImage = async () => {
@@ -9,6 +10,7 @@ export default function Home() {
         const response = await fetch('/api/v1/generate');
         const data = await response.json();
         setImageUrl(data.URL);
+        setAnimal(data.animal);
       } catch (error) {
         console.error(error);
       }
@@ -17,14 +19,23 @@ export default function Home() {
     fetchImage();
   }, []); // Certifique-se de que a dependência está vazia para que o useEffect seja executado apenas uma vez
 
-  console.log("🚀 ~ file: index.js:21 ~ Home ~ imageUrl:", imageUrl);
   if (!imageUrl) {
     return <LoadingSpinner />;
   }
 
   return (
-    <div style={{ height: '100vh', width: '100vw', overflow: 'hidden' }}>
+    <div style={{ position: 'relative', height: '100vh', width: '100vw', overflow: 'hidden' }}>
       <img src={imageUrl} style={{ height: '100%', width: '100%', objectFit: 'cover' }} />
+      <p style={{
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        color: 'white',
+        fontSize: '5vw',
+        textAlign: 'center',
+        textShadow: '2px 2px 4px #000000'
+      }}>{animal}</p>
     </div>
   );
 }

@@ -4,10 +4,11 @@ async function generate(request, response) {
   const client = createClient(process.env.API_KEY_PEXELS);
   const termos = ["monkey", "seal"];
   const query = termos[gerarAleatorioZeroOUm()];
+  const animal = query === "monkey" ? "MACACO" : "FOCA";
 
   const photos = await client.photos.search({ query, per_page: 50 })
   const result = photos.photos[gerarAleatorioZeroAVinte()].src.original;
-  return response.status(400).json({ status: "OK", URL: result });
+  return response.status(400).json({ status: "OK", URL: result, animal });
 }
 
 function gerarAleatorioZeroOUm() {
