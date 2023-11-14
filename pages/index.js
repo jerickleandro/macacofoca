@@ -28,13 +28,14 @@ export default function Home() {
       <img src={imageUrl} style={{ height: '100%', width: '100%', objectFit: 'cover' }} />
       <p style={{
         position: 'absolute',
-        top: '50%',
+        bottom: '0',
         left: '50%',
-        transform: 'translate(-50%, -50%)',
+        transform: 'translateX(-50%)',
         color: 'white',
         fontSize: '5vw',
         textAlign: 'center',
-        textShadow: '2px 2px 4px #000000'
+        textShadow: '2px 2px 4px #000000',
+        fontFamily: 'Arial'
       }}>{animal}</p>
     </div>
   );
