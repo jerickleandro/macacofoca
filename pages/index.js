@@ -29,10 +29,9 @@ export default function Home() {
       <p style={{
         position: 'absolute',
         bottom: '0',
-        left: '50%',
         transform: 'translateX(-50%)',
         color: 'white',
-        fontSize: '5vw',
+        fontSize: '100vw',
         textAlign: 'center',
         textShadow: '2px 2px 4px #000000',
         fontFamily: 'Arial'
