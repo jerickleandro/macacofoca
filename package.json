@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@vercel/speed-insights": "^1.0.2",
     "axios": "^1.6.1",
     "next": "^13.1.6",
     "pexels": "^1.4.0",

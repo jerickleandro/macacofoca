@@ -4,20 +4,20 @@ export default function Home() {
   const [imageUrl, setImageUrl] = useState(null);
   const [animal, setAnimal] = useState(null);
 
-  useEffect(() => {
-    const fetchImage = async () => {
-      try {
-        const response = await fetch('/api/v1/generate');
-        const data = await response.json();
-        setImageUrl(data.URL);
-        setAnimal(data.animal);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+  const generateNewImage = async () => {
+    try {
+      const response = await fetch('/api/v1/generate');
+      const data = await response.json();
+      setImageUrl(data.URL);
+      setAnimal(data.animal);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-    fetchImage();
-  }, []); // Certifique-se de que a dependência está vazia para que o useEffect seja executado apenas uma vez
+  useEffect(() => {
+    generateNewImage();
+  }, []);
 
   if (!imageUrl) {
     return <LoadingSpinner />;
@@ -40,6 +40,20 @@ export default function Home() {
         maxWidth: '100vw',
         fontWeight: 'bold'
       }}>{animal}</p>
+      <button
+        style={{
+          position: 'fixed',
+          right: '20px',
+          bottom: '20px',
+          backgroundColor: 'purple',
+          borderRadius: '50%',
+          padding: '10px',
+          cursor: 'pointer'
+        }}
+        onClick={generateNewImage}
+      >
+        ↻
+      </button>
     </div>
   );
 }
